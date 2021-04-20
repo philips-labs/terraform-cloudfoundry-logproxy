@@ -10,20 +10,20 @@ variable "hsdp_environment" {
 
 variable "memory" {
   description = "Amount of memory to use"
-  type        = string
-  default     = "64M"
+  type        = number
+  default     = 64
 }
 
 variable "disk" {
   description = "Amount of disk to allocate"
-  type        = string
-  default     = "512M"
+  type        = number
+  default     = 512
 }
 
 variable "logproxy_image" {
   description = "Docker image to use"
   type        = string
-  default     = "philipssoftware/logproxy:v1.4.0"
+  default     = "philipssoftware/logproxy:v1.4.1"
 }
 
 variable "docker_username" {
@@ -49,7 +49,7 @@ variable "cf_space_name" {
   default     = ""
 }
 
-variable "cf_user" {
+variable "cf_username" {
   description = "The Cloudfoundry user to assign rights to the app to"
   type        = string
 }
