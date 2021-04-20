@@ -11,7 +11,7 @@ data "cloudfoundry_service" "rabbitmq" {
 }
 
 data "cloudfoundry_domain" "domain" {
-  name = data.cloudfoundry_domain.domain
+  name = data.hsdp_config.cf.domain
 }
 
 data "cloudfoundry_domain" "internal" {
@@ -47,11 +47,17 @@ resource "cloudfoundry_app" "logproxy" {
     HSDP_LOGINGESTOR_PRODUCT_KEY = var.product_key
     LOGPROXY_SYSLOG              = "true"
     LOGPROXY_QUEUE               = "channel"
+    TOKEN = random_password.token.result
   }, var.environment)
 
   routes {
     route = cloudfoundry_route.logproxy.id
   }
+}
+
+resource "random_password" "token" {
+  length = 32
+  special = false
 }
 
 resource "cloudfoundry_route" "logproxy" {

@@ -4,8 +4,8 @@
 
 Module to deploy Logproxy
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!--- BEGIN_TF_DOCS --->
+<!--- END_TF_DOCS --->
 
 # Contact / Getting help
 
