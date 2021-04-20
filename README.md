@@ -51,8 +51,6 @@ No Modules.
 | docker\_password | Docker registry password | `string` | `""` | no |
 | docker\_username | Docker registry username | `string` | `""` | no |
 | environment | Optional additional environment variables for Logproxy | `map(any)` | `{}` | no |
-| hsdp\_environment | The HSDP environment in the region | `string` | n/a | yes |
-| hsdp\_region | The HSDP region to deploy into | `string` | n/a | yes |
 | logproxy\_image | Docker image to use | `string` | `"philipssoftware/logproxy:v1.4.1"` | no |
 | memory | Amount of memory to use | `number` | `64` | no |
 | name\_postfix | The postfix string to append to the space, hostname, etc. Prevents namespace clashes | `string` | `""` | no |
