@@ -39,11 +39,6 @@ variable "cf_space_name" {
   default     = ""
 }
 
-variable "cf_username" {
-  description = "The Cloudfoundry user to assign rights to the app to"
-  type        = string
-}
-
 variable "name_postfix" {
   type        = string
   description = "The postfix string to append to the space, hostname, etc. Prevents namespace clashes"
@@ -69,18 +64,6 @@ variable "shared_key" {
 variable "secret_key" {
   type        = string
   description = "The secret key for signing requests"
-}
-
-variable "rabbitmq_broker_settings" {
-  type = object({
-    service_broker = string
-    service_plan   = string
-  })
-  default = {
-    service_broker = "hsdp-rabbitmq-server"
-    service_plan   = "rabbitmq-dev-standalone"
-  }
-  description = "The RabbitMQ service broker settings. Only used when queue_type is set to 'rabbitmq'"
 }
 
 variable "environment" {
