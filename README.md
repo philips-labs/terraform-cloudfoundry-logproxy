@@ -36,6 +36,7 @@ No Modules.
 | [cloudfoundry_route](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/route) |
 | [cloudfoundry_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/service) |
 | [cloudfoundry_space](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/space) |
+| [cloudfoundry_user_provided_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/user_provided_service) |
 | [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) |
 | [random_password](https://registry.terraform.io/providers/random/latest/docs/resources/password) |
 
@@ -63,7 +64,10 @@ No Modules.
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| logdrain\_endpoint | The logproxy logdrain endpoint |
+| logdrain\_service\_id | The uuid of the logdrain service. You can bind this to your app to enable logdraining |
 
 <!--- END_TF_DOCS --->
 
