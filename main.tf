@@ -65,3 +65,7 @@ resource "cloudfoundry_route" "logproxy" {
   space    = data.cloudfoundry_space.space.id
   hostname = var.name_postfix == "" ? "logproxy" : "logproxy-${var.name_postfix}"
 }
+
+resource "cloudfoundry_user_provided_service" "logdrain" {
+  syslog_drain_url = "https://${cloudfoundry_route.logproxy.endpoint}/syslog/drain/${random_password.token.result}"
+}
