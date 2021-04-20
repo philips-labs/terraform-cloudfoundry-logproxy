@@ -1,13 +1,3 @@
-variable "hsdp_region" {
-  description = "The HSDP region to deploy into"
-  type        = string
-}
-
-variable "hsdp_environment" {
-  description = "The HSDP environment in the region"
-  type        = string
-}
-
 variable "memory" {
   description = "Amount of memory to use"
   type        = number

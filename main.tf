@@ -19,14 +19,10 @@ data "cloudfoundry_domain" "internal" {
 }
 
 data "hsdp_config" "logging" {
-  region      = var.hsdp_region
-  environment = var.hsdp_environment
   service     = "logging"
 }
 
 data "hsdp_config" "cf" {
-  region      = var.hsdp_region
-  environment = var.hsdp_environment
   service     = "cf"
 }
 
