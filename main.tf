@@ -19,11 +19,11 @@ data "cloudfoundry_domain" "internal" {
 }
 
 data "hsdp_config" "logging" {
-  service     = "logging"
+  service = "logging"
 }
 
 data "hsdp_config" "cf" {
-  service     = "cf"
+  service = "cf"
 }
 
 resource "cloudfoundry_app" "logproxy" {
