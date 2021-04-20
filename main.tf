@@ -47,7 +47,7 @@ resource "cloudfoundry_app" "logproxy" {
     HSDP_LOGINGESTOR_PRODUCT_KEY = var.product_key
     LOGPROXY_SYSLOG              = "true"
     LOGPROXY_QUEUE               = "channel"
-    TOKEN = random_password.token.result
+    TOKEN                        = random_password.token.result
   }, var.environment)
 
   routes {
@@ -56,7 +56,7 @@ resource "cloudfoundry_app" "logproxy" {
 }
 
 resource "random_password" "token" {
-  length = 32
+  length  = 32
   special = false
 }
 
