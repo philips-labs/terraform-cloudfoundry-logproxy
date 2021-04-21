@@ -36,7 +36,6 @@ variable "cf_org_name" {
 variable "cf_space_name" {
   description = "The space where to deploy components to. If not specified a new space will be created"
   type        = string
-  default     = ""
 }
 
 variable "name_postfix" {
