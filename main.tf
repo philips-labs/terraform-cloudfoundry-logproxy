@@ -6,10 +6,6 @@ data "cloudfoundry_space" "space" {
   name = var.cf_space_name
 }
 
-data "cloudfoundry_service" "rabbitmq" {
-  name = var.rabbitmq_broker_settings.service_broker
-}
-
 data "cloudfoundry_domain" "domain" {
   name = data.hsdp_config.cf.domain
 }
