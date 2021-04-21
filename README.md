@@ -44,7 +44,7 @@ No Modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | cf\_org\_name | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
-| cf\_space\_name | The space where to deploy components to. If not specified a new space will be created | `string` | `""` | no |
+| cf\_space\_name | The space where to deploy components to. If not specified a new space will be created | `string` | n/a | yes |
 | disk | Amount of disk to allocate | `number` | `512` | no |
 | docker\_password | Docker registry password | `string` | `""` | no |
 | docker\_username | Docker registry username | `string` | `""` | no |
