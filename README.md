@@ -34,7 +34,6 @@ No Modules.
 | [cloudfoundry_domain](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/domain) |
 | [cloudfoundry_org](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/org) |
 | [cloudfoundry_route](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/route) |
-| [cloudfoundry_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/service) |
 | [cloudfoundry_space](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/space) |
 | [cloudfoundry_user_provided_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/user_provided_service) |
 | [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) |
