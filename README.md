@@ -34,7 +34,6 @@ No Modules.
 | [cloudfoundry_domain](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/domain) |
 | [cloudfoundry_org](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/org) |
 | [cloudfoundry_route](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/route) |
-| [cloudfoundry_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/service) |
 | [cloudfoundry_space](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/data-sources/space) |
 | [cloudfoundry_user_provided_service](https://registry.terraform.io/providers/philips-labs/cloudfoundry/latest/docs/resources/user_provided_service) |
 | [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) |
@@ -46,19 +45,15 @@ No Modules.
 |------|-------------|------|---------|:--------:|
 | cf\_org\_name | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
 | cf\_space\_name | The space where to deploy components to. If not specified a new space will be created | `string` | `""` | no |
-| cf\_username | The Cloudfoundry user to assign rights to the app to | `string` | n/a | yes |
 | disk | Amount of disk to allocate | `number` | `512` | no |
 | docker\_password | Docker registry password | `string` | `""` | no |
 | docker\_username | Docker registry username | `string` | `""` | no |
 | environment | Optional additional environment variables for Logproxy | `map(any)` | `{}` | no |
-| hsdp\_environment | The HSDP environment in the region | `string` | n/a | yes |
-| hsdp\_region | The HSDP region to deploy into | `string` | n/a | yes |
 | logproxy\_image | Docker image to use | `string` | `"philipssoftware/logproxy:v1.4.1"` | no |
 | memory | Amount of memory to use | `number` | `64` | no |
 | name\_postfix | The postfix string to append to the space, hostname, etc. Prevents namespace clashes | `string` | `""` | no |
 | product\_key | The HSDP logging product key | `string` | n/a | yes |
 | queue\_type | The queue type to use. Supported are 'chnanel' or 'rabbitmq' | `string` | `"channel"` | no |
-| rabbitmq\_broker\_settings | The RabbitMQ service broker settings. Only used when queue\_type is set to 'rabbitmq' | <pre>object({<br>    service_broker = string<br>    service_plan   = string<br>  })</pre> | <pre>{<br>  "service_broker": "hsdp-rabbitmq-server",<br>  "service_plan": "rabbitmq-dev-standalone"<br>}</pre> | no |
 | secret\_key | The secret key for signing requests | `string` | n/a | yes |
 | shared\_key | The shared key for signing requests | `string` | n/a | yes |
 

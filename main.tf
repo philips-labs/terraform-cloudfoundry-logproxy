@@ -6,10 +6,6 @@ data "cloudfoundry_space" "space" {
   name = var.cf_space_name
 }
 
-data "cloudfoundry_service" "rabbitmq" {
-  name = var.rabbitmq_broker_settings.service_broker
-}
-
 data "cloudfoundry_domain" "domain" {
   name = data.hsdp_config.cf.domain
 }
@@ -19,15 +15,11 @@ data "cloudfoundry_domain" "internal" {
 }
 
 data "hsdp_config" "logging" {
-  region      = var.hsdp_region
-  environment = var.hsdp_environment
-  service     = "logging"
+  service = "logging"
 }
 
 data "hsdp_config" "cf" {
-  region      = var.hsdp_region
-  environment = var.hsdp_environment
-  service     = "cf"
+  service = "cf"
 }
 
 resource "cloudfoundry_app" "logproxy" {
