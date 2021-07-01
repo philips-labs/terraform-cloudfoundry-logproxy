@@ -58,7 +58,7 @@ resource "random_password" "token" {
 resource "cloudfoundry_route" "logproxy" {
   domain   = data.cloudfoundry_domain.domain.id
   space    = var.cf_space_id
-  hostname = "tf-logproxy-${var.name_postfix}"
+  hostname = "tf-logproxy-${local.postfix}"
 }
 
 resource "cloudfoundry_user_provided_service" "logdrain" {
