@@ -28,13 +28,8 @@ variable "docker_password" {
   default     = ""
 }
 
-variable "cf_org_name" {
-  description = "Cloudfoundry ORG name to use for reverse proxy"
-  type        = string
-}
-
-variable "cf_space_name" {
-  description = "The space where to deploy components to. If not specified a new space will be created"
+variable "cf_space_id" {
+  description = "The space ID to deploy components to"
   type        = string
 }
 
@@ -46,7 +41,7 @@ variable "name_postfix" {
 
 variable "queue_type" {
   type        = string
-  description = "The queue type to use. Supported are 'chnanel' or 'rabbitmq'"
+  description = "The queue type to use. Supported are 'channel' or 'rabbitmq'"
   default     = "channel"
 }
 

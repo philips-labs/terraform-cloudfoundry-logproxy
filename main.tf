@@ -1,12 +1,13 @@
-data "cloudfoundry_org" "org" {
-  name = var.cf_org_name
+locals {
+  postfix = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
 }
-data "cloudfoundry_space" "space" {
-  org  = data.cloudfoundry_org.org.id
-  name = var.cf_space_name
+
+resource "random_id" "id" {
+  byte_length = 8
 }
 
 data "cloudfoundry_domain" "domain" {
+  //noinspection HILUnresolvedReference
   name = data.hsdp_config.cf.domain
 }
 
@@ -23,8 +24,8 @@ data "hsdp_config" "cf" {
 }
 
 resource "cloudfoundry_app" "logproxy" {
-  name         = "logproxy"
-  space        = data.cloudfoundry_space.space.id
+  name         = "tf-logproxy-${local.postfix}"
+  space        = var.cf_space_id
   memory       = var.memory
   disk_quota   = var.disk
   docker_image = var.logproxy_image
@@ -35,6 +36,7 @@ resource "cloudfoundry_app" "logproxy" {
   environment = merge({
     HSDP_LOGINGESTOR_KEY         = var.shared_key
     HSDP_LOGINGESTOR_SECRET      = var.secret_key
+    //noinspection HILUnresolvedReference
     HSDP_LOGINGESTOR_URL         = data.hsdp_config.logging.url
     HSDP_LOGINGESTOR_PRODUCT_KEY = var.product_key
     LOGPROXY_SYSLOG              = "true"
@@ -42,6 +44,7 @@ resource "cloudfoundry_app" "logproxy" {
     TOKEN                        = random_password.token.result
   }, var.environment)
 
+  //noinspection HCLUnknownBlockType
   routes {
     route = cloudfoundry_route.logproxy.id
   }
@@ -54,12 +57,13 @@ resource "random_password" "token" {
 
 resource "cloudfoundry_route" "logproxy" {
   domain   = data.cloudfoundry_domain.domain.id
-  space    = data.cloudfoundry_space.space.id
-  hostname = var.name_postfix == "" ? "logproxy" : "logproxy-${var.name_postfix}"
+  space    = var.cf_space_id
+  hostname = "tf-logproxy-${var.name_postfix}"
 }
 
 resource "cloudfoundry_user_provided_service" "logdrain" {
-  name             = "logproxy_logdrain"
-  space            = data.cloudfoundry_space.space.id
+  name             = "tf-logproxy-${local.postfix}"
+  space            = var.cf_space_id
+  //noinspection HILUnresolvedReference
   syslog_drain_url = "https://${cloudfoundry_route.logproxy.endpoint}/syslog/drain/${random_password.token.result}"
 }
