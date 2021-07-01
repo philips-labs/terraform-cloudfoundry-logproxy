@@ -49,6 +49,7 @@ No modules.
 | <a name="input_docker_password"></a> [docker\_password](#input\_docker\_password) | Docker registry password | `string` | `""` | no |
 | <a name="input_docker_username"></a> [docker\_username](#input\_docker\_username) | Docker registry username | `string` | `""` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Optional additional environment variables for Logproxy | `map(any)` | `{}` | no |
+| <a name="input_logdrain_endpoint"></a> [logdrain\_endpoint](#input\_logdrain\_endpoint) | The HSDP Logging endpoint. When empty will be auto-detected based on region/environment | `string` | `""` | no |
 | <a name="input_logproxy_image"></a> [logproxy\_image](#input\_logproxy\_image) | Docker image to use | `string` | `"philipssoftware/logproxy:v1.4.3"` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | Amount of memory to use | `number` | `64` | no |
 | <a name="input_name_postfix"></a> [name\_postfix](#input\_name\_postfix) | The postfix string to append to the space, hostname, etc. Prevents namespace clashes | `string` | `""` | no |
@@ -63,7 +64,6 @@ No modules.
 |------|-------------|
 | <a name="output_logdrain_endpoint"></a> [logdrain\_endpoint](#output\_logdrain\_endpoint) | The logproxy logdrain endpoint |
 | <a name="output_logdrain_service_id"></a> [logdrain\_service\_id](#output\_logdrain\_service\_id) | The uuid of the logdrain service. You can bind this to your app to enable logdraining |
-
 <!--- END_TF_DOCS --->
 
 # Contact / Getting help

@@ -60,6 +60,12 @@ variable "secret_key" {
   description = "The secret key for signing requests"
 }
 
+variable "logdrain_endpoint" {
+  type = string
+  description = "The HSDP Logging endpoint. When empty will be auto-detected based on region/environment"
+  default = ""
+}
+
 variable "environment" {
   type        = map(any)
   description = "Optional additional environment variables for Logproxy"
