@@ -1,5 +1,5 @@
 locals {
-  postfix = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+  postfix           = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
   logdrain_endpoint = var.logdrain_endpoint != "" ? var.logdrain_endpoint : data.hsdp_config.logging.url
 }
 
@@ -62,8 +62,8 @@ resource "cloudfoundry_route" "logproxy" {
 }
 
 resource "cloudfoundry_user_provided_service" "logdrain" {
-  name             = "tf-logproxy-${local.postfix}"
-  space            = var.cf_space_id
+  name  = "tf-logproxy-${local.postfix}"
+  space = var.cf_space_id
   //noinspection HILUnresolvedReference
   syslog_drain_url = "https://${cloudfoundry_route.logproxy.endpoint}/syslog/drain/${random_password.token.result}"
 }

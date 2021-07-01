@@ -61,9 +61,9 @@ variable "secret_key" {
 }
 
 variable "logdrain_endpoint" {
-  type = string
+  type        = string
   description = "The HSDP Logging endpoint. When empty will be auto-detected based on region/environment"
-  default = ""
+  default     = ""
 }
 
 variable "environment" {
