@@ -60,10 +60,22 @@ variable "secret_key" {
   description = "The secret key for signing requests"
 }
 
-variable "logdrain_endpoint" {
+variable "logingestor_url" {
   type        = string
-  description = "The HSDP Logging endpoint. When empty will be auto-detected based on region/environment"
+  description = "The HSDP Log ingestor endpoint. When empty auto-detect via hsdp_config"
   default     = ""
+}
+
+variable "enable_syslog" {
+  type        = bool
+  description = "Enable syslog drain endpoint"
+  default     = true
+}
+
+variable "enable_ironio" {
+  type        = bool
+  description = "Enable iron logdrain endpoint"
+  default     = false
 }
 
 variable "environment" {

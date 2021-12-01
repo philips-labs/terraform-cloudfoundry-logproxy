@@ -1,6 +1,6 @@
 locals {
-  postfix           = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
-  logdrain_endpoint = var.logdrain_endpoint != "" ? var.logdrain_endpoint : data.hsdp_config.logging.url
+  postfix         = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+  logingestor_url = var.logingestor_url != "" ? var.logingestor_url : data.hsdp_config.logging.url
 }
 
 resource "random_id" "id" {
@@ -37,9 +37,10 @@ resource "cloudfoundry_app" "logproxy" {
   environment = merge({
     HSDP_LOGINGESTOR_KEY         = var.shared_key
     HSDP_LOGINGESTOR_SECRET      = var.secret_key
-    HSDP_LOGINGESTOR_URL         = local.logdrain_endpoint
+    HSDP_LOGINGESTOR_URL         = local.logingestor_url
     HSDP_LOGINGESTOR_PRODUCT_KEY = var.product_key
-    LOGPROXY_SYSLOG              = "true"
+    LOGPROXY_SYSLOG              = var.enable_syslog
+    LOGPROXY_IRONIO              = var.enable_ironio
     LOGPROXY_QUEUE               = "channel"
     TOKEN                        = random_password.token.result
   }, var.environment)
