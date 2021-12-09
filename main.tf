@@ -41,7 +41,11 @@ resource "cloudfoundry_app" "logproxy" {
     HSDP_LOGINGESTOR_PRODUCT_KEY = var.product_key
     LOGPROXY_SYSLOG              = var.enable_syslog
     LOGPROXY_IRONIO              = var.enable_ironio
-    LOGPROXY_QUEUE               = "channel"
+    LOGPROXY_QUEUE               = var.queue_type
+    LOGPROXY_SERVICE_ID          = var.service_id
+    LOGPROXY_SERVICE_PRIVATE_KEY = var.service_private_key
+    LOGPROXY_REGION              = var.hsdp_region
+    LOGPROXY_ENV                 = var.hsdp_environment
     TOKEN                        = random_password.token.result
   }, var.environment)
 

@@ -13,7 +13,7 @@ variable "disk" {
 variable "logproxy_image" {
   description = "Docker image to use"
   type        = string
-  default     = "philipssoftware/logproxy:v1.4.4"
+  default     = "philipssoftware/logproxy:v1.7.0"
 }
 
 variable "docker_username" {
@@ -52,18 +52,44 @@ variable "product_key" {
 
 variable "shared_key" {
   type        = string
-  description = "The shared key for signing requests"
+  description = "The shared key for API signing based authentication. When using signing authentication, the service base variables should not be provided."
+  default     = ""
 }
 
 variable "secret_key" {
   type        = string
-  description = "The secret key for signing requests"
+  description = "The secret key API signing based authentication. When using signing authentication, the service base variables should not be provided."
+  default     = ""
 }
 
 variable "logingestor_url" {
   type        = string
   description = "The HSDP Log ingestor endpoint. When empty auto-detect via hsdp_config"
   default     = ""
+}
+
+variable "service_id" {
+  type        = string
+  description = "The IAM service identity id for service based authentication (recommended). When using service authentication, the signing base variables should not be provided"
+  default     = ""
+}
+
+variable "service_private_key" {
+  type        = string
+  description = "The IAM service identity private key for service based authentication (recommended). When using service authentication, the signing base variables should not be provided"
+  default     = ""
+}
+
+variable "hsdp_region" {
+  type        = string
+  description = "The hsdp region that the service identity belongs for service based authentication (recommended). When using service authentication, the signing base variables should not be provided"
+  default     = "us-east"
+}
+
+variable "hsdp_environment" {
+  type        = string
+  description = "The hsdp environment that the service identity belongs for service based authentication (recommended). When using service authentication, the signing base variables should not be provided"
+  default     = "client-test"
 }
 
 variable "enable_syslog" {
