@@ -1,6 +1,7 @@
 locals {
   postfix         = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
   logingestor_url = var.logingestor_url != "" ? var.logingestor_url : data.hsdp_config.logging.url
+  app_name        = var.app_name != "" ? var.app_name : "tf-logproxy-${local.postfix}"
 }
 
 resource "random_id" "id" {
@@ -25,7 +26,7 @@ data "hsdp_config" "cf" {
 }
 
 resource "cloudfoundry_app" "logproxy" {
-  name         = "tf-logproxy-${local.postfix}"
+  name         = local.app_name
   space        = var.cf_space_id
   memory       = var.memory
   disk_quota   = var.disk

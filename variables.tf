@@ -109,3 +109,9 @@ variable "environment" {
   description = "Optional additional environment variables for Logproxy"
   default     = {}
 }
+
+variable "app_name" {
+  type        = string
+  description = "override the application name"
+  default     = ""
+}
