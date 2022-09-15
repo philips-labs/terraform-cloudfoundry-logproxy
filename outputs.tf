@@ -11,5 +11,5 @@ output "logdrain_service_id" {
 
 output "logproxy_app_id" {
   description = "The logproxy app GUID"
-  value       = cloudfoundry_app.logproxy.id
+  value       = cloudfoundry_app.logproxy.id_bg
 }

@@ -30,6 +30,7 @@ resource "cloudfoundry_app" "logproxy" {
   space        = var.cf_space_id
   memory       = var.memory
   disk_quota   = var.disk
+  strategy     = "blue-green"
   docker_image = var.logproxy_image
   docker_credentials = {
     username = var.docker_username
