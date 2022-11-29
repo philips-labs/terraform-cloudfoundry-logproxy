@@ -13,7 +13,7 @@ variable "disk" {
 variable "logproxy_image" {
   description = "Docker image to use"
   type        = string
-  default     = "philipssoftware/logproxy:v1.7.4"
+  default     = "philipssoftware/logproxy:v1.7.9"
 }
 
 variable "docker_username" {
