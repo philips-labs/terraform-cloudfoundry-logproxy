@@ -49,6 +49,7 @@ resource "cloudfoundry_app" "logproxy" {
     LOGPROXY_REGION              = var.hsdp_region
     LOGPROXY_ENV                 = var.hsdp_environment
     TOKEN                        = random_password.token.result
+    DEBUG                        = var.enable_debugging
   }, var.environment)
 
   //noinspection HCLUnknownBlockType

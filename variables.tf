@@ -92,6 +92,12 @@ variable "hsdp_environment" {
   default     = "client-test"
 }
 
+variable "enable_debug" {
+  type        = bool
+  description = "Enable debugging."
+  default     = false
+}
+
 variable "enable_syslog" {
   type        = bool
   description = "Enable syslog drain endpoint"
