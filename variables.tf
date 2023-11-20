@@ -92,7 +92,7 @@ variable "hsdp_environment" {
   default     = "client-test"
 }
 
-variable "enable_debug" {
+variable "enable_debugging" {
   type        = bool
   description = "Enable debugging."
   default     = false

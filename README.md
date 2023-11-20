@@ -47,7 +47,7 @@ No modules.
 | <a name="input_disk"></a> [disk](#input\_disk) | Amount of disk to allocate | `number` | `512` | no |
 | <a name="input_docker_password"></a> [docker\_password](#input\_docker\_password) | Docker registry password | `string` | `""` | no |
 | <a name="input_docker_username"></a> [docker\_username](#input\_docker\_username) | Docker registry username | `string` | `""` | no |
-| <a name="input_enable_debug"></a> [enable\_debug](#input\_enable\_debug) | Enable debugging. | `bool` | `false` | no |
+| <a name="input_enable_debugging"></a> [enable\_debugging](#input\_enable\_debugging) | Enable debugging. | `bool` | `false` | no |
 | <a name="input_enable_ironio"></a> [enable\_ironio](#input\_enable\_ironio) | Enable iron logdrain endpoint | `bool` | `false` | no |
 | <a name="input_enable_syslog"></a> [enable\_syslog](#input\_enable\_syslog) | Enable syslog drain endpoint | `bool` | `true` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Optional additional environment variables for Logproxy | `map(any)` | `{}` | no |
